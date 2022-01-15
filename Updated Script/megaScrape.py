@@ -25,6 +25,8 @@ linksScraped = pd.read_csv('US Restaurants Locations.csv')['Source'].to_list()
 #print(pageLinks)
 
 toBeScraped = (len(pageLinks))-(len(linksScraped))
+
+alreadyScraped = (len(pageLinks) - 3)
  
 print(f'{len(pageLinks)} Total links\n')
 
@@ -40,6 +42,8 @@ count = len(linksScraped)
 
 pauseLimit = [i for i in range(1, 251000) if i % 5000 == 0]
 
+
+del pageLinks[:alreadyScraped]
 
 for pageLink in pageLinks:
 
